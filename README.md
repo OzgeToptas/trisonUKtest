@@ -1,49 +1,56 @@
-# PHP Proxy Task
+# PHP Proxy Task — Vue.js Version
 
-This is a simple PHP-based proxy script developed as part of a practical task.
+This project is an extended version of the original PHP proxy script, featuring a basic visual interface using Vue.js (via CDN).
 
-## ✅ Overview
+## ✅ What It Does
 
-The goal of this script is to:
-
-- Fetch an external XML feed
-- Convert it to JSON
-- Cache the result locally for 2 minutes
-- Return the JSON output to the client
+- Fetches an external XML feed
+- Converts it to JSON
+- Caches the result locally for 2 minutes
+- Displays the JSON data in a simple UI
+- Shows the last update time
+- Provides a "Refresh" button
+- Includes a toggleable dark mode
 
 ## 🔧 How It Works
 
-1. When the `proxy.php` script is accessed:
+- The core logic is handled in `proxy.php`.
+- A cached version (`cache.json`) is stored for 2 minutes.
+- `index.html` uses Vue.js to call `proxy.php` and render the result with enhancements.
+- Vue is included via CDN — no build steps are required.
 
-   - It checks if a cached version (`cache.json`) exists and is still valid (under 2 minutes old).
-   - If so, it returns the cached version.
-   - If not, it fetches the XML from the external feed:  
-     `https://clients.trison.uk/task/example.xml`
-   - It then converts the XML to JSON.
-   - Stores it locally in `cache.json` for future requests.
-   - Returns the converted JSON to the client.
+## 🚀 How to Run Locally
 
-2. If the feed cannot be reached and no cache is available, it returns an error.
-
-## 💻 Requirements
-
-- PHP 7.0 or higher
-- No external dependencies or frameworks required
-
-## 🚀 Running Locally
+Make sure you have PHP installed, then run:
 
 ```bash
 php -S localhost:8000
 
 Then open in your browser:
-http://localhost:8000/proxy.php
 
-📁 Files
-proxy.php — Main script
+http://localhost:8000/index.html — Vue.js interface
 
-cache.json — Automatically generated cache file (2-minute lifespan)
+http://localhost:8000/proxy.php — Raw JSON output
+
+📁 Files Included
+proxy.php — PHP script that fetches, caches and converts the feed
+
+index.html — Vue-based interface (uses CDN, no build tools)
+
+cache.json — Automatically generated file (excluded from Git)
 
 README.md — This file
 
+📷 UI Features
+
+🟢 Refresh button
+
+🕓 Last updated timestamp
+
+🌙 Dark mode toggle
+
+🎨 Clean, modern design with Google Fonts
+
+✅ Fully responsive and ready to run out of the box
+
 ```
-# trisonUKtest
